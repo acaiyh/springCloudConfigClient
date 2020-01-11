@@ -1,0 +1,23 @@
+server:
+  port: 8200
+spring:
+  application:
+    ####服务名称必须是 配置文件开头的 config-dev.properties，那么服务名称为 config
+    name: config
+  cloud:
+    config:
+      #### 配置文件的 后缀 config-dev.properties,那么 profile为 dev
+      profile: dev
+      discovery:
+        service-id: config-server
+        enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka
+#####刷新配置  接口等
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
